@@ -1,4 +1,4 @@
-module Pods_PetPOC {
+framework module Pods_PetPOC {
   umbrella header "Pods-PetPOC-umbrella.h"
 
   export *

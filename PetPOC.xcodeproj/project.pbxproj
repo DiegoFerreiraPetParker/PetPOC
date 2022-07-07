@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E15BFF4480A0C66104F02C6 /* libPods-PetPOC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 643798757BC645CAAFC9EA14 /* libPods-PetPOC.a */; };
 		3107CBC52877118000B5FD8E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC42877118000B5FD8E /* LoginView.swift */; };
 		3107CBC7287711AC00B5FD8E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC6287711AC00B5FD8E /* RegisterView.swift */; };
 		3107CBCA287711C800B5FD8E /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC9287711C800B5FD8E /* Textfield.swift */; };
 		3107CBCC287711D400B5FD8E /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBCB287711D400B5FD8E /* RegisterButton.swift */; };
 		3107CBCE28771D0600B5FD8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3107CBCD28771D0600B5FD8E /* GoogleService-Info.plist */; };
+		B3A74B815947195A6FE45FCE /* Pods_PetPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */; };
 		F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF583028766B5700524B5B /* AppDelegate.swift */; };
 		F8CF583A28766B5A00524B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CF583928766B5A00524B5B /* Assets.xcassets */; };
 		F8CF583D28766B5A00524B5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8CF583B28766B5A00524B5B /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		3107CBC9287711C800B5FD8E /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		3107CBCB287711D400B5FD8E /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		3107CBCD28771D0600B5FD8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		643798757BC645CAAFC9EA14 /* libPods-PetPOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PetPOC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1DDB60527C357E74C6689A4 /* Pods-PetPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPOC.debug.xcconfig"; path = "Target Support Files/Pods-PetPOC/Pods-PetPOC.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CF582D28766B5700524B5B /* PetPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CF583028766B5700524B5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E15BFF4480A0C66104F02C6 /* libPods-PetPOC.a in Frameworks */,
+				B3A74B815947195A6FE45FCE /* Pods_PetPOC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,14 +94,13 @@
 				C1DDB60527C357E74C6689A4 /* Pods-PetPOC.debug.xcconfig */,
 				034ABE9B4FCF38413B680261 /* Pods-PetPOC.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		C75B7C2080996EA895A29067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				643798757BC645CAAFC9EA14 /* libPods-PetPOC.a */,
+				BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,7 +146,7 @@
 				F8CF582928766B5700524B5B /* Sources */,
 				F8CF582A28766B5700524B5B /* Frameworks */,
 				F8CF582B28766B5700524B5B /* Resources */,
-				40DBB8BB4EF07B6E4B550B28 /* [CP] Copy Pods Resources */,
+				6E8922480F54AB14CCF469BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,21 +204,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		40DBB8BB4EF07B6E4B550B28 /* [CP] Copy Pods Resources */ = {
+		6E8922480F54AB14CCF469BA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PetPOC/Pods-PetPOC-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-PetPOC/Pods-PetPOC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PetPOC/Pods-PetPOC-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-PetPOC/Pods-PetPOC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetPOC/Pods-PetPOC-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetPOC/Pods-PetPOC-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E3580E5E6D6DBA4378A06A5D /* [CP] Check Pods Manifest.lock */ = {
@@ -405,6 +404,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,6 +434,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
