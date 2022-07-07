@@ -12,6 +12,7 @@
 		3107CBCA287711C800B5FD8E /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC9287711C800B5FD8E /* Textfield.swift */; };
 		3107CBCC287711D400B5FD8E /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBCB287711D400B5FD8E /* RegisterButton.swift */; };
 		3107CBCE28771D0600B5FD8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3107CBCD28771D0600B5FD8E /* GoogleService-Info.plist */; };
+		31C70D2A28774964002E44AE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C70D2928774964002E44AE /* DummyViewController.swift */; };
 		B3A74B815947195A6FE45FCE /* Pods_PetPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */; };
 		F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF583028766B5700524B5B /* AppDelegate.swift */; };
 		F8CF583A28766B5A00524B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CF583928766B5A00524B5B /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		3107CBC9287711C800B5FD8E /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		3107CBCB287711D400B5FD8E /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		3107CBCD28771D0600B5FD8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31C70D2928774964002E44AE /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1DDB60527C357E74C6689A4 /* Pods-PetPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPOC.debug.xcconfig"; path = "Target Support Files/Pods-PetPOC/Pods-PetPOC.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CF582D28766B5700524B5B /* PetPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CF583028766B5700524B5B /* AppDelegate.swift */,
+				31C70D2928774964002E44AE /* DummyViewController.swift */,
 				310F57ED28767CFD00C4871F /* Login */,
 				310F57EE28767D0500C4871F /* Register */,
 				3107CBC8287711B800B5FD8E /* Components */,
@@ -257,6 +260,7 @@
 				F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */,
 				3107CBC52877118000B5FD8E /* LoginView.swift in Sources */,
 				F8CF5847287676E000524B5B /* RegisterViewController.swift in Sources */,
+				31C70D2A28774964002E44AE /* DummyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

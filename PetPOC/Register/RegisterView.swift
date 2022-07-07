@@ -18,10 +18,13 @@ class RegisterView: UIView {
         return stackView
     }()
     
-    lazy var userFirstName: UIStackView = {
-        let stackView = makeTextfieldWith(label: "Nome", placeholder: "Digite seu primeiro nome")
+    lazy var userFirstName: UITextField = {
+        let textfield = UITextField()
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.delegate = self
+        textfield.placeholder = "Digite seu primeiro nome"
         
-        return stackView
+        return textfield
     }()
     
     lazy var firstDividerView: UIView = {
@@ -30,30 +33,47 @@ class RegisterView: UIView {
         return view
     }()
     
-    lazy var username: UIStackView = {
-        let stackView = makeTextfieldWith(label: "Usuário", placeholder: "Digite o nome de usuário desejado")
+    lazy var email: UITextField = {
+        let textfield = UITextField()
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.delegate = self
+        textfield.placeholder = "Digite seu e-mail"
         
-        return stackView
+        return textfield
     }()
     
     lazy var secondDividerView: UIView = {
-        let view = makeDivider()
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        view.backgroundColor = .secondarySystemFill
         
         return view
     }()
     
-    lazy var password: UIStackView = {
-        let stackView = makePasswordTextfieldWith(label: "Senha", placeholder: "Digite uma senha")
+    lazy var password: UITextField = {
+        let textfield = UITextField()
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.delegate = self
+        textfield.isSecureTextEntry = true
+        textfield.textContentType = .oneTimeCode
+//        textfield.textContentType = .none
+        textfield.autocorrectionType = .no
+        textfield.placeholder = "Digite sua senha"
         
-        return stackView
+        return textfield
     }()
     
-//    lazy var passwordConfirmation: UIStackView = {
-//        let stackView = makePasswordTextfieldWith(label: "Confirmar Senha", placeholder: "Confirme sua senha")
+//    lazy var passwordConfirmation: UITextField = {
+//        let textfield = UITextField()
+//        textfield.translatesAutoresizingMaskIntoConstraints = false
+//        textfield.isSecureTextEntry = true
+//        textfield.placeholder = "Confirme sua senha"
 //
-//        return stackView
+//        return textfield
 //    }()
     
+    //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -75,7 +95,7 @@ class RegisterView: UIView {
     private func setupHierarchy() {
         stackView.addArrangedSubview(userFirstName)
         stackView.addArrangedSubview(firstDividerView)
-        stackView.addArrangedSubview(username)
+        stackView.addArrangedSubview(email)
         stackView.addArrangedSubview(secondDividerView)
         stackView.addArrangedSubview(password)
 
@@ -96,9 +116,9 @@ class RegisterView: UIView {
 //MARK: - UITextFieldDelegate
 extension RegisterView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        userFirstName.endEditing(true)
-        username.endEditing(true)
+        email.endEditing(true)
         password.endEditing(true)
+        
         return true
     }
 
