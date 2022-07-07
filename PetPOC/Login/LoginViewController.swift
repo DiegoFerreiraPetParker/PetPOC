@@ -67,9 +67,6 @@ class LoginViewController: UIViewController {
             stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        
-        // Register Button
-        
     }
 }
 
