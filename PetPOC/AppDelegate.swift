@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .orange //.systemBackground
         window?.rootViewController = UINavigationController(rootViewController: loginViewController)
+        
+        FirebaseApp.configure()
         
         return true
     }

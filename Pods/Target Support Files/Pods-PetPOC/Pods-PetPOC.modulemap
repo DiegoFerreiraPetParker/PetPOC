@@ -1,0 +1,6 @@
+module Pods_PetPOC {
+  umbrella header "Pods-PetPOC-umbrella.h"
+
+  export *
+  module * { export * }
+}
