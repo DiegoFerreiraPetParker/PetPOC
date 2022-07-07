@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol LoginViewDelegate {
+    func enableButton()
+    func disableButton()
+}
+
 class LoginView: UIView {
+    
+    var delegate: LoginViewDelegate?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -22,6 +29,7 @@ class LoginView: UIView {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.keyboardType = .emailAddress
+        textfield.autocapitalizationType = .none
         textfield.placeholder = "Usuário"
         textfield.delegate = self
         
@@ -32,18 +40,20 @@ class LoginView: UIView {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.isSecureTextEntry = true
-        textfield.placeholder = "Senha"
+        textfield.placeholder = "Senha (mínimo 6 dígitos)"
         textfield.delegate = self
         
         return textfield
     }()
     
     lazy var dividerView: UIView = {
-        let view = makeDivider()
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        view.backgroundColor = .secondarySystemFill
         
         return view
     }()
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,9 +90,17 @@ class LoginView: UIView {
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
         ])
+    }
+    
+    private func validateTextField() {
+        guard let emailTextfieldIsEmpty = emailTextField.text?.isEmpty,
+              let passwordText = passwordTextField.text else { return }
         
-        //Divider
-//        dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        if !emailTextfieldIsEmpty && passwordText.count >= 6 {
+            delegate?.enableButton()
+        } else {
+            delegate?.disableButton()
+        }
     }
 }
 
@@ -98,7 +116,7 @@ extension LoginView: UITextFieldDelegate {
         return true
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
-
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        validateTextField()
     }
 }

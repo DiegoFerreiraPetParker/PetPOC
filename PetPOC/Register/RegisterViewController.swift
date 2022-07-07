@@ -15,7 +15,10 @@ class RegisterViewController: UIViewController {
     let registerView = RegisterView()
     
     lazy var registerButton: UIButton = {
-        let button = makeRegisterButton()
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
+        button.setTitle("Registre-se", for: .normal)
         button.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         
         return button
@@ -35,6 +38,8 @@ class RegisterViewController: UIViewController {
         title = "Cadastre-se"
         
         registerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        registerView.delegate = self
         
         setupHierarchy()
         setupConstraints()
@@ -76,5 +81,16 @@ extension RegisterViewController {
                 self.navigationController?.pushViewController(DummyViewController(), animated: true)
             }
         }
+    }
+}
+
+//MARK: - RegisterViewDelegate
+extension RegisterViewController: RegisterViewDelegate {
+    func enableButton() {
+        registerButton.isEnabled = true
+    }
+    
+    func disableButton() {
+        registerButton.isEnabled = false
     }
 }

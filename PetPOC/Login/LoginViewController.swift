@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
         button.setTitle("Entrar", for: .normal)
         button.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
         
@@ -24,9 +25,11 @@ class LoginViewController: UIViewController {
     }()
     
     lazy var registerButton: UIButton = {
-        let button = makeRegisterButton()
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Registre-se", for: .normal)
         button.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
-        
+
         return button
     }()
     
@@ -43,6 +46,7 @@ class LoginViewController: UIViewController {
         title = "Entrar"
         
         loginView.translatesAutoresizingMaskIntoConstraints = false
+        loginView.delegate = self
     
         setupHierarchy()
         setupConstraints()
@@ -76,6 +80,10 @@ class LoginViewController: UIViewController {
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerButton.trailingAnchor, multiplier: 2)
         ])
     }
+    
+    private func enableLoginButton() {
+        
+    }
 }
 
 //MARK: - ACTIONS
@@ -98,4 +106,16 @@ extension LoginViewController {
     @objc private func registerTapped(_ sender: UIButton) {
         navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
+}
+
+//MARK: - LoginViewDelegate
+extension LoginViewController: LoginViewDelegate {
+    func enableButton() {
+        loginButton.isEnabled = true
+    }
+    
+    func disableButton() {
+        loginButton.isEnabled = false
+    }
+
 }

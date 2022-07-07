@@ -7,43 +7,54 @@
 
 import UIKit
 
+protocol RegisterViewDelegate {
+    func enableButton()
+    func disableButton()
+}
+
 class RegisterView: UIView {
+    
+    var delegate: RegisterViewDelegate?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = 8
         
         return stackView
     }()
     
-    lazy var userFirstName: UITextField = {
-        let textfield = UITextField()
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.delegate = self
-        textfield.placeholder = "Digite seu primeiro nome"
-        
-        return textfield
-    }()
+//    lazy var userFirstName: UITextField = {
+//        let textfield = UITextField()
+//        textfield.translatesAutoresizingMaskIntoConstraints = false
+//        textfield.delegate = self
+//        textfield.placeholder = "Digite seu primeiro nome"
+//
+//        return textfield
+//    }()
     
-    lazy var firstDividerView: UIView = {
-        let view = makeDivider()
-        
-        return view
-    }()
+//    lazy var firstDividerView: UIView = {
+//        let view = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+//        view.backgroundColor = .secondarySystemFill
+//
+//        return view
+//    }()
     
     lazy var emailTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.keyboardType = .emailAddress
+        textfield.autocapitalizationType = .none
         textfield.delegate = self
         textfield.placeholder = "Digite seu e-mail"
         
         return textfield
     }()
     
-    lazy var secondDividerView: UIView = {
+    lazy var dividerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -60,7 +71,7 @@ class RegisterView: UIView {
         textfield.textContentType = .oneTimeCode
 //        textfield.textContentType = .none
         textfield.autocorrectionType = .no
-        textfield.placeholder = "Digite sua senha"
+        textfield.placeholder = "Senha (mínimo 6 dígitos)"
         
         return textfield
     }()
@@ -94,10 +105,10 @@ class RegisterView: UIView {
     }
     
     private func setupHierarchy() {
-        stackView.addArrangedSubview(userFirstName)
-        stackView.addArrangedSubview(firstDividerView)
+//        stackView.addArrangedSubview(userFirstName)
+//        stackView.addArrangedSubview(firstDividerView)
         stackView.addArrangedSubview(emailTextfield)
-        stackView.addArrangedSubview(secondDividerView)
+        stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextfield)
 
         addSubview(stackView)
@@ -112,6 +123,18 @@ class RegisterView: UIView {
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
         ])
     }
+    
+    private func validateTextField() {
+        guard let emailTextfieldIsEmpty = emailTextfield.text?.isEmpty,
+              let passwordText = passwordTextfield.text else { return }
+        
+        if !emailTextfieldIsEmpty && passwordText.count >= 6 {
+            delegate?.enableButton()
+        } else {
+            delegate?.disableButton()
+        }
+    }
+
 }
 
 //MARK: - UITextFieldDelegate
@@ -127,11 +150,7 @@ extension RegisterView: UITextFieldDelegate {
         return true
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
-
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        validateTextField()
     }
 }
-
-// Nome
-// usuário
-// senha -> mais de 6 dígitos, um caracter especial e uma letra maiúscula
