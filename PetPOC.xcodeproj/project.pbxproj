@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3107CBC52877118000B5FD8E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC42877118000B5FD8E /* LoginView.swift */; };
+		3107CBC7287711AC00B5FD8E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC6287711AC00B5FD8E /* RegisterView.swift */; };
+		3107CBCA287711C800B5FD8E /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBC9287711C800B5FD8E /* Textfield.swift */; };
+		3107CBCC287711D400B5FD8E /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107CBCB287711D400B5FD8E /* RegisterButton.swift */; };
 		F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF583028766B5700524B5B /* AppDelegate.swift */; };
 		F8CF583A28766B5A00524B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CF583928766B5A00524B5B /* Assets.xcassets */; };
 		F8CF583D28766B5A00524B5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8CF583B28766B5A00524B5B /* LaunchScreen.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3107CBC42877118000B5FD8E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3107CBC6287711AC00B5FD8E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3107CBC9287711C800B5FD8E /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
+		3107CBCB287711D400B5FD8E /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		F8CF582D28766B5700524B5B /* PetPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CF583028766B5700524B5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8CF583928766B5A00524B5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,10 +43,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3107CBC8287711B800B5FD8E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3107CBC9287711C800B5FD8E /* Textfield.swift */,
+				3107CBCB287711D400B5FD8E /* RegisterButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		310F57ED28767CFD00C4871F /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				F8CF58442876764F00524B5B /* LoginViewController.swift */,
+				3107CBC42877118000B5FD8E /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -47,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CF5846287676E000524B5B /* RegisterViewController.swift */,
+				3107CBC6287711AC00B5FD8E /* RegisterView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -83,6 +102,7 @@
 				F8CF583028766B5700524B5B /* AppDelegate.swift */,
 				310F57ED28767CFD00C4871F /* Login */,
 				310F57EE28767D0500C4871F /* Register */,
+				3107CBC8287711B800B5FD8E /* Components */,
 				310F57EF28767D1A00C4871F /* Files */,
 			);
 			path = PetPOC;
@@ -159,7 +179,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8CF58452876764F00524B5B /* LoginViewController.swift in Sources */,
+				3107CBCA287711C800B5FD8E /* Textfield.swift in Sources */,
+				3107CBC7287711AC00B5FD8E /* RegisterView.swift in Sources */,
+				3107CBCC287711D400B5FD8E /* RegisterButton.swift in Sources */,
 				F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */,
+				3107CBC52877118000B5FD8E /* LoginView.swift in Sources */,
 				F8CF5847287676E000524B5B /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

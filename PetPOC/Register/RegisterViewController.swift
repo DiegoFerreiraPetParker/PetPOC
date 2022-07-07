@@ -10,22 +10,14 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     //MARK: - UI COMPONENTS
-    lazy var stackview: UIStackView = {
-        let stackview = UIStackView()
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.axis = .vertical
-        stackview.spacing = 20
-        
-        return stackview
-    }()
     
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.text = "Register"
+    let registerView = RegisterView()
+    
+    lazy var registerButton: UIButton = {
+        let button = makeRegisterButton()
+        button.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         
-        return label
+        return button
     }()
     
     //MARK: - LIFE CYCLES
@@ -36,25 +28,42 @@ class RegisterViewController: UIViewController {
     }
     
     //MARK: - PRIVATE FUNCTIONS
+    
     private func setup() {
         view.backgroundColor = .systemYellow
-        title = "Register"
+        title = "Cadastre-se"
         
+        registerView.translatesAutoresizingMaskIntoConstraints = false
         
         setupHierarchy()
         setupConstraints()
     }
     
     private func setupHierarchy() {
-        stackview.addArrangedSubview(label)
-        view.addSubview(stackview)
+        view.addSubview(registerView)
+        view.addSubview(registerButton)
     }
     
     private func setupConstraints() {
+        // Register View
         NSLayoutConstraint.activate([
-            stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            registerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            registerView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerView.trailingAnchor, multiplier: 2)
+        ])
+        
+        // Register Button
+        NSLayoutConstraint.activate([
+            registerButton.topAnchor.constraint(equalToSystemSpacingBelow: registerView.bottomAnchor, multiplier: 2),
+            registerButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerButton.trailingAnchor, multiplier: 2)
         ])
     }
 }
 
+//MARK: - ACTIONS
+extension RegisterViewController {
+    @objc private func registerTapped(_ sender: UIButton) {
+        print("Registrou")
+    }
+}
