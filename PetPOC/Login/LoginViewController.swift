@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -80,7 +81,18 @@ class LoginViewController: UIViewController {
 //MARK: - ACTIONS
 extension LoginViewController {
     @objc private func loginTapped(_ sender: UIButton) {
-        print("Logou")
+        guard let email = loginView.emailTextField.text,
+              let password = loginView.passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                self.view.endEditing(true)
+                print(error.localizedDescription)
+            } else {
+                self.view.endEditing(true)
+                self.navigationController?.pushViewController(DummyViewController(), animated: true)
+            }
+        }
     }
     
     @objc private func registerTapped(_ sender: UIButton) {

@@ -66,8 +66,8 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController {
     @objc private func registerTapped(_ sender: UIButton) {
         
-        guard let email = registerView.email.text,
-              let password = registerView.password.text else { return }
+        guard let email = registerView.emailTextfield.text,
+              let password = registerView.passwordTextfield.text else { return }
             
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {

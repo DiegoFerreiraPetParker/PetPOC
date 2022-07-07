@@ -18,9 +18,10 @@ class LoginView: UIView {
         return stackView
     }()
     
-    lazy var usernameTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.keyboardType = .emailAddress
         textfield.placeholder = "Usuário"
         textfield.delegate = self
         
@@ -63,7 +64,7 @@ class LoginView: UIView {
     }
     
     private func setupHierarchy() {
-        stackView.addArrangedSubview(usernameTextField)
+        stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
         
@@ -88,7 +89,7 @@ class LoginView: UIView {
 //MARK: - UITextFieldDelegate
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        usernameTextField.endEditing(true)
+        emailTextField.endEditing(true)
         passwordTextField.endEditing(true)
         return true
     }

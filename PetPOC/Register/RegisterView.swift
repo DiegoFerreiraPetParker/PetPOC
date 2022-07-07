@@ -33,9 +33,10 @@ class RegisterView: UIView {
         return view
     }()
     
-    lazy var email: UITextField = {
+    lazy var emailTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.keyboardType = .emailAddress
         textfield.delegate = self
         textfield.placeholder = "Digite seu e-mail"
         
@@ -51,7 +52,7 @@ class RegisterView: UIView {
         return view
     }()
     
-    lazy var password: UITextField = {
+    lazy var passwordTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.delegate = self
@@ -95,9 +96,9 @@ class RegisterView: UIView {
     private func setupHierarchy() {
         stackView.addArrangedSubview(userFirstName)
         stackView.addArrangedSubview(firstDividerView)
-        stackView.addArrangedSubview(email)
+        stackView.addArrangedSubview(emailTextfield)
         stackView.addArrangedSubview(secondDividerView)
-        stackView.addArrangedSubview(password)
+        stackView.addArrangedSubview(passwordTextfield)
 
         addSubview(stackView)
     }
@@ -116,8 +117,8 @@ class RegisterView: UIView {
 //MARK: - UITextFieldDelegate
 extension RegisterView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        email.endEditing(true)
-        password.endEditing(true)
+        emailTextfield.endEditing(true)
+        passwordTextfield.endEditing(true)
         
         return true
     }

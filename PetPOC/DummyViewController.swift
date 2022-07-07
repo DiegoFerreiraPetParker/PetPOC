@@ -23,7 +23,7 @@ class DummyViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.text = "DummyVC"
+        label.text = "Welcome"
         
         return label
     }()
