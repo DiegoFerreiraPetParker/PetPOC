@@ -12,6 +12,8 @@
 		3107CBCE28771D0600B5FD8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3107CBCD28771D0600B5FD8E /* GoogleService-Info.plist */; };
 		31C70D2A28774964002E44AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C70D2928774964002E44AE /* HomeViewController.swift */; };
 		31C70D2D2877A36D002E44AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C70D2C2877A36D002E44AE /* Constants.swift */; };
+		31D1BB2028785F5000AEE0C6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1BB1F28785F5000AEE0C6 /* AlertViewController.swift */; };
+		31D1BB232878697900AEE0C6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1BB222878697900AEE0C6 /* UIViewController+Extension.swift */; };
 		B3A74B815947195A6FE45FCE /* Pods_PetPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */; };
 		F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF583028766B5700524B5B /* AppDelegate.swift */; };
 		F8CF583A28766B5A00524B5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CF583928766B5A00524B5B /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		3107CBCD28771D0600B5FD8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31C70D2928774964002E44AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		31C70D2C2877A36D002E44AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		31D1BB1F28785F5000AEE0C6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		31D1BB222878697900AEE0C6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BBF74EDDFF471E78976C41F4 /* Pods_PetPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1DDB60527C357E74C6689A4 /* Pods-PetPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPOC.debug.xcconfig"; path = "Target Support Files/Pods-PetPOC/Pods-PetPOC.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CF582D28766B5700524B5B /* PetPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +91,22 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		31D1BB1E28785F3B00AEE0C6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				31D1BB1F28785F5000AEE0C6 /* AlertViewController.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		31D1BB212878696000AEE0C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31D1BB222878697900AEE0C6 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		91B155F730AA3CF6B3EC6AEC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +150,8 @@
 				310F57ED28767CFD00C4871F /* Login */,
 				310F57EE28767D0500C4871F /* Register */,
 				31C70D2B2877A300002E44AE /* Constants */,
+				31D1BB1E28785F3B00AEE0C6 /* Components */,
+				31D1BB212878696000AEE0C6 /* Extensions */,
 				310F57EF28767D1A00C4871F /* Files */,
 			);
 			path = PetPOC;
@@ -250,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D1BB232878697900AEE0C6 /* UIViewController+Extension.swift in Sources */,
 				F8CF58452876764F00524B5B /* LoginViewController.swift in Sources */,
 				3107CBC7287711AC00B5FD8E /* RegisterView.swift in Sources */,
 				F8CF583128766B5700524B5B /* AppDelegate.swift in Sources */,
+				31D1BB2028785F5000AEE0C6 /* AlertViewController.swift in Sources */,
 				3107CBC52877118000B5FD8E /* LoginView.swift in Sources */,
 				31C70D2D2877A36D002E44AE /* Constants.swift in Sources */,
 				F8CF5847287676E000524B5B /* RegisterViewController.swift in Sources */,
@@ -402,6 +426,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -414,7 +439,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -432,6 +457,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -444,7 +470,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

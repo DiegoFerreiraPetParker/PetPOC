@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol RegisterViewDelegate {
+protocol RegisterViewDelegate: AnyObject {
     func enableButton()
     func disableButton()
 }
 
 class RegisterView: UIView {
     
-    var delegate: RegisterViewDelegate?
+    weak var delegate: RegisterViewDelegate?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -68,7 +68,6 @@ class RegisterView: UIView {
     }
     
     private func setup() {
-        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor(named: CustomColors.mainBackground)
         
         setupHierarchy()
@@ -76,10 +75,9 @@ class RegisterView: UIView {
     }
     
     private func setupHierarchy() {
+        addSubview(stackView)
         stackView.addArrangedSubview(emailTextfield)
         stackView.addArrangedSubview(passwordTextfield)
-
-        addSubview(stackView)
     }
     
     private func setupConstraints() {

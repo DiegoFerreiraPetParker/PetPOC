@@ -123,6 +123,7 @@ extension LoginViewController {
             if let error = error {
                 self.view.endEditing(true)
                 print(error.localizedDescription)
+                self.presentAlert(alertMessage: error.localizedDescription)
             } else {
                 self.view.endEditing(true)
                 self.loginView.emailTextField.text = ""

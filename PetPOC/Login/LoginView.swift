@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol LoginViewDelegate {
+protocol LoginViewDelegate: AnyObject {
     func enableButton()
     func disableButton()
 }
 
 class LoginView: UIView {
     
-    var delegate: LoginViewDelegate?
+    weak var delegate: LoginViewDelegate?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -65,7 +65,6 @@ class LoginView: UIView {
     }
     
     private func setup() {
-        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor(named: CustomColors.mainBackground)
         
         setupHierarchy()
@@ -73,10 +72,9 @@ class LoginView: UIView {
     }
     
     private func setupHierarchy() {
+        addSubview(stackView)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        
-        addSubview(stackView)
     }
     
     private func setupConstraints() {
