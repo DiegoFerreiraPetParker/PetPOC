@@ -25,15 +25,6 @@ class RegisterView: UIView {
         return stackView
     }()
     
-//    lazy var userFirstName: UITextField = {
-//        let textfield = UITextField()
-//        textfield.translatesAutoresizingMaskIntoConstraints = false
-//        textfield.delegate = self
-//        textfield.placeholder = "Digite seu primeiro nome"
-//
-//        return textfield
-//    }()
-    
     lazy var emailTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
@@ -64,15 +55,6 @@ class RegisterView: UIView {
         
         return textfield
     }()
-    
-//    lazy var passwordConfirmation: UITextField = {
-//        let textfield = UITextField()
-//        textfield.translatesAutoresizingMaskIntoConstraints = false
-//        textfield.isSecureTextEntry = true
-//        textfield.placeholder = "Confirme sua senha"
-//
-//        return textfield
-//    }()
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -126,7 +108,6 @@ class RegisterView: UIView {
             delegate?.disableButton()
         }
     }
-
 }
 
 //MARK: - UITextFieldDelegate

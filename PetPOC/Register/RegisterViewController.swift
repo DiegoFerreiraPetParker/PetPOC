@@ -60,7 +60,7 @@ class RegisterViewController: UIViewController {
     private func setupConstraints() {
         // Register View
         NSLayoutConstraint.activate([
-            registerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            registerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -32),
             registerView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerView.trailingAnchor, multiplier: 1)
         ])
@@ -73,7 +73,6 @@ class RegisterViewController: UIViewController {
             
             registerButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
     }
 }
 
@@ -88,7 +87,7 @@ extension RegisterViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                self.navigationController?.pushViewController(DummyViewController(), animated: true)
+                self.navigationController?.pushViewController(HomeViewController(), animated: true)
             }
         }
     }

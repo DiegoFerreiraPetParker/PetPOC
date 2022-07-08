@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
     private func setupConstraints() {
         // Login View
         NSLayoutConstraint.activate([
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -32),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
         ])
@@ -111,10 +111,6 @@ class LoginViewController: UIViewController {
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerButton.trailingAnchor, multiplier: 2),
         ])
     }
-    
-    private func enableLoginButton() {
-        
-    }
 }
 
 //MARK: - ACTIONS
@@ -129,7 +125,9 @@ extension LoginViewController {
                 print(error.localizedDescription)
             } else {
                 self.view.endEditing(true)
-                self.navigationController?.pushViewController(DummyViewController(), animated: true)
+                self.loginView.emailTextField.text = ""
+                self.loginView.passwordTextField.text = ""
+                self.navigationController?.pushViewController(HomeViewController(), animated: true)
             }
         }
     }
@@ -150,7 +148,6 @@ extension LoginViewController: LoginViewDelegate {
         loginButton.isEnabled = false
         loginButton.backgroundColor = UIColor(named: CustomColors.secondGreen)
     }
-
 }
 
 //MARK: - Dismiss Keyboard

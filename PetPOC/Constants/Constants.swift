@@ -11,6 +11,8 @@ struct Constants {
     static let loginButtonTitle: String = "Entrar"
     static let registerButtonTitle: String = "Cadastre-se"
     static let registerLabel: String = "Não tem conta ainda?"
+    static let logoutBarButtonItem: String = "Sair"
+    static let happyDogImage: String = "HappyDog"
 }
 
 struct CustomColors {

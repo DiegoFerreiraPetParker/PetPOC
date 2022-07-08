@@ -119,7 +119,6 @@ extension LoginView: UITextFieldDelegate {
             passwordTextField.endEditing(true)
         }
         
-        
         return true
     }
 
