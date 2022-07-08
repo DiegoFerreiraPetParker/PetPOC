@@ -9,9 +9,9 @@ import UIKit
 
 extension UIViewController {
     
-    func presentAlert(alertMessage: String) {
+    func presentAlert(alertTitle: String, alertMessage: String, buttonTitle: String) {
         DispatchQueue.main.async {
-            let alertViewController = AlertViewController(message: alertMessage)
+            let alertViewController = AlertViewController(title: alertTitle, message: alertMessage, button: buttonTitle)
             alertViewController.modalPresentationStyle = .overFullScreen
             alertViewController.modalTransitionStyle = .crossDissolve
             self.present(alertViewController, animated: true)

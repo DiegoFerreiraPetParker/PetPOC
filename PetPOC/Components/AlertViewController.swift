@@ -9,13 +9,16 @@ import UIKit
 
 class AlertViewController: UIViewController {
 
-//    var alertTitle: String = ""
+    var alertTitle: String?
     var message: String?
+    var buttonTitle: String?
     
     //MARK: - Initializers
-    init(message: String) {
+    init(title: String, message: String, button: String) {
         super.init(nibName: nil, bundle: nil)
         self.message = message
+        self.alertTitle = title
+        self.buttonTitle = button
     }
     
     required init?(coder: NSCoder) {
@@ -38,7 +41,7 @@ class AlertViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "Oops 😲"
+        label.text = alertTitle
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
         return label
@@ -50,7 +53,7 @@ class AlertViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.text = message ?? "Oops! Algo deu errado"
+        label.text = message ?? Constants.errorAlertMessage
         
         return label
     }()
@@ -58,14 +61,12 @@ class AlertViewController: UIViewController {
     lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.isEnabled = false
         button.backgroundColor = UIColor(named: CustomColors.mainGreen)
         button.layer.cornerRadius = 5
-        button.setTitle("Ok", for: .normal)
+        button.setTitle(buttonTitle, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(UIColor.white, for: .normal)
-//        button.setTitleColor(UIColor.white, for: .disabled)
-        button.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        button.addTarget(self, action: #selector(action), for: .touchUpInside)
         
         return button
     }()
@@ -114,7 +115,6 @@ class AlertViewController: UIViewController {
             actionButton.topAnchor.constraint(equalToSystemSpacingBelow: messageLabel.bottomAnchor, multiplier: 2),
             messageLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: containerView.leadingAnchor, multiplier: 3),
             containerView.trailingAnchor.constraint(equalToSystemSpacingAfter: messageLabel.trailingAnchor, multiplier: 3),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
         
         // Action Button
@@ -127,11 +127,7 @@ class AlertViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @objc func dismissAlert(_ sender: UIButton) {
+    @objc func action(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }
-
-
-
-

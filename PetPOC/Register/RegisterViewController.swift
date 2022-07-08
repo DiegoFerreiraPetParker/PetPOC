@@ -13,7 +13,7 @@ class RegisterViewController: UIViewController {
     //MARK: - UI COMPONENTS
     
     let registerView = RegisterView()
-    
+
     lazy var registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +70,6 @@ class RegisterViewController: UIViewController {
             registerButton.topAnchor.constraint(equalToSystemSpacingBelow: registerView.bottomAnchor, multiplier: 2),
             registerButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerButton.trailingAnchor, multiplier: 2),
-            
             registerButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -85,7 +84,7 @@ extension RegisterViewController {
             
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print(error.localizedDescription)
+                self.presentAlert(alertTitle: Constants.errorAlertTitle, alertMessage: error.localizedDescription, buttonTitle: Constants.errorAlertButtonTitle)
             } else {
                 self.navigationController?.pushViewController(HomeViewController(), animated: true)
             }

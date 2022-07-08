@@ -123,7 +123,7 @@ extension LoginViewController {
             if let error = error {
                 self.view.endEditing(true)
                 print(error.localizedDescription)
-                self.presentAlert(alertMessage: error.localizedDescription)
+                self.presentAlert(alertTitle: Constants.errorAlertTitle, alertMessage: error.localizedDescription, buttonTitle: Constants.errorAlertButtonTitle)
             } else {
                 self.view.endEditing(true)
                 self.loginView.emailTextField.text = ""
@@ -134,6 +134,8 @@ extension LoginViewController {
     }
     
     @objc private func registerTapped(_ sender: UIButton) {
+        self.loginView.emailTextField.text = ""
+        self.loginView.passwordTextField.text = ""
         navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
 }

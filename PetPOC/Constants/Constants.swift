@@ -13,6 +13,9 @@ struct Constants {
     static let registerLabel: String = "Não tem conta ainda?"
     static let logoutBarButtonItem: String = "Sair"
     static let happyDogImage: String = "HappyDog"
+    static let errorAlertTitle: String = "Oops 😲"
+    static let errorAlertMessage: String = "Algo de errado não está certo"
+    static let errorAlertButtonTitle: String = "Voltar"
 }
 
 struct CustomColors {
