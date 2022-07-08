@@ -48,6 +48,8 @@ class LoginView: UIView {
         textfield.layer.cornerRadius = 5
         textfield.backgroundColor = UIColor(named: CustomColors.secondBackground)
         textfield.isSecureTextEntry = true
+        textfield.textContentType = .oneTimeCode
+        textfield.autocorrectionType = .no
         textfield.returnKeyType = .done
         textfield.placeholder = Constants.passwordPlaceholder
         
