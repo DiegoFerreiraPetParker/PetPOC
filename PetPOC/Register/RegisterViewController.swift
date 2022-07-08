@@ -18,7 +18,13 @@ class RegisterViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isEnabled = false
-        button.setTitle("Registre-se", for: .normal)
+        
+        button.backgroundColor = UIColor(named: CustomColors.secondGreen)
+        button.layer.cornerRadius = 5
+        button.setTitle(Constants.registerButtonTitle, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.white, for: .disabled)
         button.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         
         return button
@@ -34,8 +40,9 @@ class RegisterViewController: UIViewController {
     //MARK: - PRIVATE FUNCTIONS
     
     private func setup() {
-        view.backgroundColor = .systemYellow
-        title = "Cadastre-se"
+        view.backgroundColor = UIColor(named: CustomColors.mainBackground)
+        title = Constants.registerButtonTitle
+        navigationController?.navigationBar.tintColor = UIColor(named: CustomColors.mainGreen)
         
         registerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -54,16 +61,19 @@ class RegisterViewController: UIViewController {
         // Register View
         NSLayoutConstraint.activate([
             registerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            registerView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerView.trailingAnchor, multiplier: 2)
+            registerView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerView.trailingAnchor, multiplier: 1)
         ])
         
         // Register Button
         NSLayoutConstraint.activate([
             registerButton.topAnchor.constraint(equalToSystemSpacingBelow: registerView.bottomAnchor, multiplier: 2),
             registerButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerButton.trailingAnchor, multiplier: 2)
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: registerButton.trailingAnchor, multiplier: 2),
+            
+            registerButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+        
     }
 }
 
@@ -88,9 +98,18 @@ extension RegisterViewController {
 extension RegisterViewController: RegisterViewDelegate {
     func enableButton() {
         registerButton.isEnabled = true
+        registerButton.backgroundColor = UIColor(named: CustomColors.mainGreen)
     }
     
     func disableButton() {
         registerButton.isEnabled = false
+        registerButton.backgroundColor = UIColor(named: CustomColors.secondGreen)
+    }
+}
+
+//MARK: - Dismiss Keyboard
+extension RegisterViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

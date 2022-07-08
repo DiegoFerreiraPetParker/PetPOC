@@ -34,44 +34,33 @@ class RegisterView: UIView {
 //        return textfield
 //    }()
     
-//    lazy var firstDividerView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-//        view.backgroundColor = .secondarySystemFill
-//
-//        return view
-//    }()
-    
     lazy var emailTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.delegate = self
+        textfield.borderStyle = .roundedRect
+        textfield.layer.cornerRadius = 5
+        textfield.backgroundColor = UIColor(named: CustomColors.secondBackground)
         textfield.keyboardType = .emailAddress
         textfield.autocapitalizationType = .none
-        textfield.delegate = self
-        textfield.placeholder = "Digite seu e-mail"
+        textfield.returnKeyType = .next
+        textfield.placeholder = Constants.emailPlaceholder
         
         return textfield
-    }()
-    
-    lazy var dividerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        view.backgroundColor = .secondarySystemFill
-        
-        return view
     }()
     
     lazy var passwordTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.delegate = self
+        textfield.borderStyle = .roundedRect
+        textfield.layer.cornerRadius = 5
+        textfield.backgroundColor = UIColor(named: CustomColors.secondBackground)
         textfield.isSecureTextEntry = true
         textfield.textContentType = .oneTimeCode
-//        textfield.textContentType = .none
         textfield.autocorrectionType = .no
-        textfield.placeholder = "Senha (mínimo 6 dígitos)"
+        textfield.returnKeyType = .done
+        textfield.placeholder = Constants.passwordPlaceholder
         
         return textfield
     }()
@@ -98,29 +87,32 @@ class RegisterView: UIView {
     
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = UIColor(named: CustomColors.mainBackground)
         
         setupHierarchy()
         setupConstraints()
     }
     
     private func setupHierarchy() {
-//        stackView.addArrangedSubview(userFirstName)
-//        stackView.addArrangedSubview(firstDividerView)
         stackView.addArrangedSubview(emailTextfield)
-        stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextfield)
 
         addSubview(stackView)
     }
     
     private func setupConstraints() {
-        // Stack View
+        // StackView
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
+        ])
+        
+        //Textfields
+        NSLayoutConstraint.activate([
+            emailTextfield.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextfield.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -140,8 +132,13 @@ class RegisterView: UIView {
 //MARK: - UITextFieldDelegate
 extension RegisterView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailTextfield.endEditing(true)
-        passwordTextfield.endEditing(true)
+        
+        if textField.placeholder == Constants.emailPlaceholder {
+            passwordTextfield.becomeFirstResponder()
+        } else {
+            emailTextfield.endEditing(true)
+            passwordTextfield.endEditing(true)
+        }
         
         return true
     }
@@ -152,5 +149,15 @@ extension RegisterView: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         validateTextField()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(named: CustomColors.mainGreen)?.cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.layer.borderWidth = 0
     }
 }

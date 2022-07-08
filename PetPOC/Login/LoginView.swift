@@ -28,10 +28,14 @@ class LoginView: UIView {
     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.keyboardType = .emailAddress
-        textfield.autocapitalizationType = .none
-        textfield.placeholder = "Usuário"
         textfield.delegate = self
+        textfield.borderStyle = .roundedRect
+        textfield.layer.cornerRadius = 5
+        textfield.keyboardType = .emailAddress
+        textfield.backgroundColor = UIColor(named: CustomColors.secondBackground)
+        textfield.autocapitalizationType = .none
+        textfield.returnKeyType = .next
+        textfield.placeholder = Constants.emailPlaceholder
         
         return textfield
     }()
@@ -39,20 +43,15 @@ class LoginView: UIView {
     lazy var passwordTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.isSecureTextEntry = true
-        textfield.placeholder = "Senha (mínimo 6 dígitos)"
         textfield.delegate = self
+        textfield.borderStyle = .roundedRect
+        textfield.layer.cornerRadius = 5
+        textfield.backgroundColor = UIColor(named: CustomColors.secondBackground)
+        textfield.isSecureTextEntry = true
+        textfield.returnKeyType = .done
+        textfield.placeholder = Constants.passwordPlaceholder
         
         return textfield
-    }()
-    
-    lazy var dividerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        view.backgroundColor = .secondarySystemFill
-        
-        return view
     }()
     
     override init(frame: CGRect) {
@@ -67,7 +66,7 @@ class LoginView: UIView {
     
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = UIColor(named: CustomColors.mainBackground)
         
         setupHierarchy()
         setupConstraints()
@@ -75,7 +74,6 @@ class LoginView: UIView {
     
     private func setupHierarchy() {
         stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
         
         addSubview(stackView)
@@ -89,6 +87,12 @@ class LoginView: UIView {
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
+        ])
+        
+        //Textfields
+        NSLayoutConstraint.activate([
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -107,8 +111,15 @@ class LoginView: UIView {
 //MARK: - UITextFieldDelegate
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailTextField.endEditing(true)
-        passwordTextField.endEditing(true)
+        
+        if textField.placeholder == Constants.emailPlaceholder {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            emailTextField.endEditing(true)
+            passwordTextField.endEditing(true)
+        }
+        
+        
         return true
     }
 
@@ -118,5 +129,15 @@ extension LoginView: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         validateTextField()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(named: CustomColors.mainGreen)?.cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.layer.borderWidth = 0
     }
 }

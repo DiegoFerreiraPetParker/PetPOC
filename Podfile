@@ -7,6 +7,5 @@ target 'PetPOC' do
     use_modular_headers!
     use_frameworks!
     pod 'FirebaseAuth'
-    pod 'FirebaseFirestore'
 
 end
